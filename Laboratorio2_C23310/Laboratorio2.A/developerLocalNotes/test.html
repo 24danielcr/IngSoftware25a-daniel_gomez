@@ -1,0 +1,106 @@
+<!--Comentario-->
+<!doctype html> <!--Ayuda al navegador interpretar el documento que deberia esperar-->
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML template</title> <!--Titulo que se muestra en "tab" del navegador-->
+</head>
+
+<body>
+
+    <p>Hello World</p>
+    <p>Hello World</p> <!--Los parrafos dejan espacio entre ellos-->
+    Hello World<br> <!--Line breaks no dejan espacios-->
+    Hello World<br>
+
+    <h1>Hello World</h1> <!--Headers dejan espacios, h1 es el m�s grande-->
+    <h2>Hello World</h2>
+    <h3>Hello World</h3>
+    <h4>Hello World</h4>
+    <h5>Hello World</h5>
+    <h6>Hello World</h6>
+
+    <!--unordered list-->
+    <ul style="list-style-type: square">
+        <!--style cambia las formas de los buletines-->
+        <li>Home</li> <!--li: list item-->
+        <li>About</li>
+        <li>Blog</li>
+        <li>Contact</li>
+    </ul>
+
+    <!--ordered list-->
+    <ol type="A">
+        <!--type especifica si se orden en letras, numeros, numeros romanos, etc...-->
+        <li>Home</li>
+        <li>About</li>
+        <li>Blog</li>
+        <li>Contact</li>
+    </ol>
+
+    <table border="1">
+        <!--border Agrega borde a la tabla, pero se utiliza mejor css para estilos-->
+        <tr>
+            <!--Table Row-->
+            <th>first</th> <!--Table Header-->
+            <th>second</th>
+            <th>third</th>
+        </tr>
+        <tr>
+            <td>HTLM</td> <!--Table Data-->
+            <td>CSS</td>
+            <td>JavaScript</td>
+        </tr>
+        <tr>
+            <td>HTLM2</td> <!--Table Data-->
+            <td>CSS2</td>
+            <td>JavaScript2</td>
+        </tr>
+    </table>
+
+    <p>My default text <img src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c6/62/c7/c662c7de-8be0-eb6a-f69e-79358ee96b58/artwork.jpg/1200x1200bf-60.jpg" width="200" height="200" /> this is a <a href="http://www.google.com" target="_blank">hyperlink!</a></p> <!--Targe es _self por default, maneja en qué ventanas se abre el link-->
+
+
+    <div>Nuevo Bloque</div> <!--Crea una nueva linea-->
+    <div>Nuevo Bloque 2</div>
+
+    <span>Nuevo en Linea</span> <!--Se mantiene en la misma linea pero se pone un espacio-->
+    <span>Nuevo en Linea 2</span>
+    <span>Nuevo en Linea 3</span>
+
+    <div><strong>Fuerte</strong> Pepe</div> <!--Texto gordo-->
+    <div><em>Italico</em> Pepe</div> <!--Texto itálico-->
+
+    <div style="border:solid #3b32ff 5px">Bonito <span style="font-size:22px">Texto Estilo</span> Bobo</div>
+
+    <form action="manejo.php" method="post">
+        <label for="nombre_usuario">Nombre de usuario:</label>
+        <input type="text" name="nombre_usuario" value="" />
+        <br>
+        <label for="contrasenia">Contraseña:</label>
+        <input type="password" name="contrasenia" value="" />
+        <br>
+        <textarea rows="5" cols="20"> Mas contenido</textarea>
+        <br>
+        <select>
+            <option value="1">Opcion 1</option>
+            <option value="2">Opcion 2</option>
+            <option value="3">Opcion 3</option>
+        </select>
+        <br>
+        <input type="radio" name="botonradio" value="html" /> <!--Si tienen nombres diferentes, no va a dejar cambiar y tampoco deseleccionar-->
+        HTML
+        <input type="radio" name="botonradio" value="css" />
+        CSS <br>
+        <input type="checkbox" name="botoncheck1" value="html" />
+        HTML
+        <input type="checkbox" name="botoncheck2" value="css" />
+        CSS<br>
+        <input type="submit" value="registrar" /> 
+        <!--HTML5 AGREGO MUCHOS MAS!-->
+    </form>
+</body>
+</html>
+
+<!--Existen classes y IDS, IDs se aplican solo una vez en todo el HTML,
+    clases pueden ser varias veces.-->
