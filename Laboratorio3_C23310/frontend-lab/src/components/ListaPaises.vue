@@ -17,7 +17,7 @@
             <tr v-for="(pais, index) of paises" :key="index"> 
                 <td>{{ pais.nombre }}</td> 
                 <td>{{ pais.continente }}</td> 
-                <td>{{ pais.Idioma }}</td> 
+                <td>{{ pais.idioma }}</td> 
                 <td> 
                 <button class="btn btn-secondary btn-sm">Editar</button> 
                 <button class="btn btn-danger btn-sm" @click="eliminarPais(index)">Eliminar</button>
@@ -29,27 +29,40 @@
 </template>
 
 <script>
-export default {
-    name: "ListaPaises",
-    data() {
-        return {
-            paises: [
-                { nombre: "Costa Rica", continente: "America", Idioma: "Español"},
-                { nombre: "Japón", continente: "Asia", Idioma: "Japonés" }, 
-                { nombre: "Corea del Sur", continente: "Asia", Idioma: "Coreano" },
-                { nombre: "Italia", continente: "Europa", Idioma: "Italiano" },
-                { nombre: "Alemania", continente: "Europa", Idioma: "Alemán" },
-            ],
-        }
-    },
-     methods: {
-        eliminarPais(index) {
-            this.paises.splice(index, 1)
-        }
-    },
-}
+    import axios from "axios";
+    export default {
+        name: "ListaPaises",
+        data() {
+            
+            return {
+                paises: [
+                    { nombre: "Costa Rica", continente: "America", idioma: "Español" },
+                    { nombre: "Japón", continente: "Asia", idioma: "Japonés" },
+                    { nombre: "Corea del Sur", continente: "Asia", idioma: "Coreano" },
+                    { nombre: "Italia", continente: "Europa", idioma: "Italiano" },
+                    { nombre: "Alemania", continente: "Europa", idioma: "Alemán" },
+                ],
+            };
+            
+        },
+        methods: {
+            eliminarPais(index) {
+                this.paises.splice(index, 1)
+            },
+
+        obtenerTareas() {
+                axios.get("https://localhost:7093/api/Paises").then((response) => {
+                    this.paises = response.data;
+                    console.log("Paises cargados:", this.paises);
+                });
+            },
+        },
+        created: function () {
+           this.obtenerTareas();
+        },
+    };
 </script>
 
-<style lang="scss" scoped>
+<style>
 
 </style>
