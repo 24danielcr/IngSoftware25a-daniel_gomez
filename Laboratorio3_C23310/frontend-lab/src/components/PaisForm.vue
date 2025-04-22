@@ -1,3 +1,4 @@
+
 <template>
     <div><h1>Formulario para crear un pais</h1></div>
     <div class="d-flex justify-content-center align-items-center vh-100">
@@ -12,16 +13,14 @@
                            type="text"
                            id="name"
                            class="form-control"
-                           required
-                     />
+                           required />
                 </div>
                 <div class="form-group">
                     <label for="continente">Continente:</label>
                     <select v-model="datosFormulario.continente"
                             id="continente"
                             required
-                            class="form-control"
-                     >
+                            class="form-control">
                         <option value="" disabled>Seleccione un continente </option>
                         <option>Africa</option>
                         <option>Asia</option>
@@ -37,13 +36,12 @@
                            type="text"
                            id="idioma"
                            class="form-control"
-                           required 
-                    />
+                           required />
                 </div>
                 <div>
                     <button type="submit" class="btn btn-success btn-block">
-                            Guardar
-                     </button>
+                        Guardar
+                    </button>
                 </div>
             </form>
         </div>
@@ -51,6 +49,7 @@
 </template>
 
 <script>
+    import axios from "axios";
     export default {
         data() {
             return {
@@ -60,6 +59,16 @@
         methods: {
             guardarPais() {
                 console.log("Datos a guardar:", this.datosFormulario);
+                axios.post("https://localhost:7093/api/Paises", {
+                    nombre: this.datosFormulario.nombre,
+                    continente: this.datosFormulario.continente,
+                    idioma: this.datosFormulario.idioma,
+                }).then(function (response) {
+                    console.log(response);
+                    window.location.href = "/";
+                }).catch(function (error) {
+                    console.log(error);
+                });
             },
         },
     };
